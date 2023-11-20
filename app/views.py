@@ -25,6 +25,19 @@ def mixture():
 
   return render_template('form.html', form=form)
 
+@app.route('/co2', methods=['GET', 'POST'])
+def o2view():
+  form = Co2Form()
+  if form.validate_on_submit():
+#    print(form.file.data.filename, file=sys.stderr)
+
+    pressure_after = form.pressure.data + form.fill_amount.data
+    o2_percentage = ((pressure_after * form.o2_target.data) - (form.pressure.data * form.o2_bottle_percentage.data)) / form.fill_amount.data
+    mod = (form.used_po2.data - (form.o2_target.data / 100)) / (form.o2_target.data / 1000)
+
+    return render_template('co2_result.html', pressure_after=pressure_after, o2_percentage=o2_percentage, mod=mod)
+
+  return render_template('form.html', form=form)
 @app.route('/feedback', methods=['GET', 'POST'])
 def feedback():
   form = FeedbackForm()
