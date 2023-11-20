@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Työkalu{% endblock %}
+{% block body %}
+<h1>Sir Miksalotti</h1>
+<form method="POST" action="/" enctype="multipart/form-data">
+  {{ form.csrf_token }}
+  <div class="form-group row">
+    {{ form.pressure.label(class_='col-sm-2 col-form-label') }}
+    <div class="col-sm-10">
+      {{ form.pressure() }}
+    </div>
+  </div>
+  <div class="form-group row">
+  {{ form.o2_bottle_percentage.label(class_='col-sm-2 col-form-label') }}
+    <div class="col-sm-10">
+      {{ form.o2_bottle_percentage() }}
+    </div>
+  </div>
+  <div class="form-group row">
+  {{ form.fill_amount.label(class_='col-sm-2 col-form-label') }}
+    <div class="col-sm-10">
+      {{ form.fill_amount() }}
+    </div>
+  </div>
+  <div class="form-group row">
+  {{ form.o2_fill_percentage.label(class_='col-sm-2 col-form-label') }}
+    <div class="col-sm-10">
+      {{ form.o2_fill_percentage() }}
+    </div>
+  </div>
+  <div class="form-group row">
+  {{ form.used_po2.label(class_='col-sm-2 col-form-label') }}
+    <div class="col-sm-10">
+      {{ form.used_po2() }}
+    </div>
+  </div>
+  <input type="submit" value="Laske" class="btn btn-primary">
+</form>
+<p>Työkalu on vapaaehtoisvoimin kehitetty ja sen käyttö tapahtuu omalla vastuulla.</p>
+{% endblock %}

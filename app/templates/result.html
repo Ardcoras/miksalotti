@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Tulos{% endblock %}
+{% block body %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Täytön jälkeen BAR</th>
+      <th scope="col">Syntyvä seos</th>
+      <th scope="col">MOD(m)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ pressure_after }}</th>
+      <td>{{ end_mixture }}</td>
+      <td>{{ mod }}</td>
+    </tr>
+  </tbody>
+</table>
+{% endblock %}
