@@ -37,7 +37,8 @@ def o2view():
 
     return render_template('co2_result.html', pressure_after=pressure_after, o2_percentage=o2_percentage, mod=mod)
 
-  return render_template('form.html', form=form)
+  return render_template('form_o2.html', form=form)
+
 @app.route('/feedback', methods=['GET', 'POST'])
 def feedback():
   form = FeedbackForm()
